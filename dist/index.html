@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+   <meta charset="UTF-8">
+   <!-- metaデータ -->
+    <meta name="description" content="これはEJSというテンプレートエンジンを使ってコーディングしたWEBサイトです。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- OGP -->
+    <meta property="og:title" content="EJS">
+    <meta property="og:description" content="これはEJSというテンプレートエンジンを使ってコーディングしたWEBサイトです。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ejs-sample.netlify.app/">
+    <meta property="og:image" content="https://ejs-sample.netlify.app/img/OGP.png">
+    <title>EJS</title>
+   <!-- GoogleFonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <!-- favicon -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- css -->
+     <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="l-header">
+ <div class="l-header__wrapper">
+    <h1 class="l-header__logo">
+        <a href="#">LOGO</a>
+     </h1>
+     <nav id="js-nav" class="l-header__nav">
+        <ul class="l-header__nav-list">
+            
+                <li class="l-header__item"><a class="l-header__link" href="#about">About</a></li>
+          
+                <li class="l-header__item"><a class="l-header__link" href="#service">Service</a></li>
+          
+                <li class="l-header__item"><a class="l-header__link" href="#recruit">Recruit</a></li>
+          
+                <li class="l-header__item"><a class="l-header__link" href="#contact">Contact</a></li>
+          
+        </ul>
+     </nav>
+ </div>
+ <button id="js-menubtn" type="button" class="c-menubtn l-sp-only">
+    <span></span>
+    <span></span>
+    <span></span>
+ </button>
+</header>
+
+<section class="p-hello">
+    <h2 class="p-hello__title">Hello! World</h2>
+</section>
+<main class="l-main">
+    <section id="about" class="p-about">
+    <h3 class="c-section-title">About</h3>
+   <div class="l-container">
+    <div class="p-about__wrapper">
+        <figure class="p-about__image">
+            <img width="544" height="363" src="../../img/about-img.jpg" alt="About画像1">
+        </figure>
+        <div class="p-about__text">
+            <p>
+                ここにテキストが入りますここにテキストが入ります。<br>
+                ここにテキストが入りますここにテキストが入ります。<br>
+                ここにテキストが入りますここにテキストが入ります。<br>
+                ここにテキストが入りますここにテキストが入ります。<br>
+                ここにテキストが入りますここにテキストが入ります。<br>
+                ここにテキストが入りますここにテキストが入ります。<br>
+                ここにテキストが入りますここにテキストが入ります。<br>
+                ここにテキストが入りますここにテキストが入ります。
+            </p>
+        </div>
+    </div>
+   </div>
+</section>
+    <section id="service" class="p-service">
+    <h3 class="c-section-title">Service</h3>
+     <div class="l-container">
+        <div class="p-service__wrapper">
+            <div class="p-service__contents">
+                <figure class="p-service__image">
+                   <img width="342" height="228" src="../../img/service-img1.jpg" alt="サイト制作のイメージ画像">
+                   <figcaption class="p-service__caption">WEBサイト制作</figcaption>
+                </figure>
+                <div class="p-service__text">
+                    <p>
+                        新規サイトの制作はもちろんサイトリニュ <br>
+                        ーアルやランディングページの制作も可能
+                        です。
+                    </p>
+                </div>
+            </div>
+            <div class="p-service__contents">
+                <figure class="p-service__image">
+                   <img width="342" height="228" src="../../img/service-img2.jpg" alt="サイト運用のイメージ画像">
+                   <figcaption class="p-service__caption">WEBサイト運用</figcaption>
+                </figure>
+                <div class="p-service__text">
+                    <p>
+                        サイトの更新作業や独自のアクセス解析に <br>
+                        基づいたサイト改善のご提案をいたします。
+                    </p>
+                </div>
+            </div>
+            <div class="p-service__contents">
+                <figure class="p-service__image">
+                   <img width="342" height="228" src="../../img/service-img3.jpg" alt="アプリ開発のイメージ画像">
+                   <figcaption class="p-service__caption">WEBアプリ開発</figcaption>
+                </figure>
+                <div class="p-service__text">
+                    <p>
+                        スマートフォンアプリ開発の他、Vue.jsや<br>
+                        ReactによるWebアプリの開発が可能です。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="p-service__btn">
+            <a href="#" class="c-btn">お問い合わせ</a>
+        </div>
+     </div>
+</section>
+    <section id="recruit" class="p-recruit">
+    <h3 class="c-section-title p-recruit__title">Recruit</h3>
+  <div class="l-container">
+ <div class="p-recruit__tab-body">
+    <h4 class="p-recruit__tab-title">WEBデザイナー</h4>
+
+    <table class="c-table">
+        
+            <tr>
+                <th>雇用形態</th>
+                <td>正社員</td>
+            </tr>
+       
+            <tr>
+                <th>給与</th>
+                <td>400万円〜600万円（経験・能力を考慮のうえ優遇）</td>
+            </tr>
+       
+            <tr>
+                <th>仕事内容</th>
+                <td>Webサイトの制作。サイトのデザインとコーディングを担当していただきます。</td>
+            </tr>
+       
+            <tr>
+                <th>勤務時間</th>
+                <td>10:00 〜 19:00（実働8時間、休憩1時間）</td>
+            </tr>
+       
+            <tr>
+                <th>応募資格</th>
+                <td><p>PhotoshopやXDなどのデザインツールの使い方を理解し、コーディングの基礎スキルがある方。実務未経験でも学校や独学で学習した方を歓迎します。</p><ul class="c-table__td-list"><li class="c-table__td-item">デザインやコーディングを楽しめる方</li><li class="c-table__td-item">常にアンテナを張って積極的にトレンドや最新の技術を取り入れる方</li><li class="c-table__td-item">お客様と一緒に楽しみながら高い目的を目指せる方</li></ul></td>
+            </tr>
+       
+    </table>
+    <div class="c-table__btn">
+     <a href="#" class="c-btn">応募する</a>
+    </div>
+</div>
+  </div>
+</section>
+    <section id="contact" class="p-contact">
+    <h4 class="c-section-title p-contact__title">Contact</h4>
+    <div class="l-container">
+        <div class="c-form-body">
+    <!-- フォームのヘッダー -->
+     <div class="c-form-head">
+        Webサイトの制作のご依頼やお見積りなど、お気軽にご相談ください。
+    </div>
+    <form action="#" class="c-form" id="js-form"  novalidate>
+         
+          <!-- formData配列の各フィールドをループ処理 -->
+          
+            <!-- フィールドのタイプがラジオボタンの場合 -->
+             <fieldset class="c-form__field">
+                <legend class="c-form__title">お問い合わせ種別
+               <!-- ラジオボタンのグループ名 -->
+                 
+                <!-- 必須フィールドの場合 -->
+                 <span class="c-form__require">※必須</span>
+                 
+                </legend>
+          <div class="c-form__field__radio-box">
+            
+                <!-- 各ラジオボタンオプションをループ処理 -->
+                  <div class="c-form__field__radio-wrapper">
+                     <input type="radio" name="type" id="type1" value="お仕事のご相談・ご依頼">
+                     <label class="c-form__field__radio-wrapper__radio-text" for="type1">お仕事のご相談・ご依頼</label>
+                  </div>
+                   
+                <!-- 各ラジオボタンオプションをループ処理 -->
+                  <div class="c-form__field__radio-wrapper">
+                     <input type="radio" name="type" id="type2" value="お見積りのご依頼">
+                     <label class="c-form__field__radio-wrapper__radio-text" for="type2">お見積りのご依頼</label>
+                  </div>
+                   
+                <!-- 各ラジオボタンオプションをループ処理 -->
+                  <div class="c-form__field__radio-wrapper">
+                     <input type="radio" name="type" id="type3" value="採用について">
+                     <label class="c-form__field__radio-wrapper__radio-text" for="type3">採用について</label>
+                  </div>
+                   
+                <!-- 各ラジオボタンオプションをループ処理 -->
+                  <div class="c-form__field__radio-wrapper">
+                     <input type="radio" name="type" id="type4" value="その他">
+                     <label class="c-form__field__radio-wrapper__radio-text" for="type4">その他</label>
+                  </div>
+                   
+                   <span id="js-radio-error"></span>
+                </div>
+            </fieldset> 
+                  
+          <!-- formData配列の各フィールドをループ処理 -->
+          
+             <!-- テキスト、メール、電話番号フィールドの場合 -->
+               <div class="c-form__item">
+                <label for="name" class="c-form__title">お名前
+                    <!-- フィールドのラベル -->
+                     
+                    <!-- 必須フィールドの場合 -->
+                     <span class="c-form__require">必須</span>
+                      
+                     </label>
+                     
+                     <input type="text" id="name" name="name" class="c-form__input"  required >
+                      
+                         <span></span>
+                       
+                    </div>
+                     
+                  
+          <!-- formData配列の各フィールドをループ処理 -->
+          
+             <!-- テキスト、メール、電話番号フィールドの場合 -->
+               <div class="c-form__item">
+                <label for="company" class="c-form__title">会社名
+                    <!-- フィールドのラベル -->
+                     
+                    <!-- 必須フィールドの場合 -->
+                     <span class="c-form__require">必須</span>
+                      
+                     </label>
+                     
+                     <input type="text" id="company" name="company" class="c-form__input"  required >
+                      
+                         <span></span>
+                       
+                    </div>
+                     
+                  
+          <!-- formData配列の各フィールドをループ処理 -->
+          
+             <!-- テキスト、メール、電話番号フィールドの場合 -->
+               <div class="c-form__item">
+                <label for="email" class="c-form__title">メールアドレス
+                    <!-- フィールドのラベル -->
+                     
+                    <!-- 必須フィールドの場合 -->
+                     <span class="c-form__require">必須</span>
+                      
+                     </label>
+                     
+                     <input type="email" id="email" name="email" class="c-form__input"  required >
+                      
+                         <span></span>
+                       
+                    </div>
+                     
+                  
+          <!-- formData配列の各フィールドをループ処理 -->
+          
+             <!-- テキスト、メール、電話番号フィールドの場合 -->
+               <div class="c-form__item">
+                <label for="tel" class="c-form__title">電話番号
+                    <!-- フィールドのラベル -->
+                     
+                    <!-- 必須フィールドの場合 -->
+                     <span class="c-form__require">必須</span>
+                      
+                     </label>
+                     
+                       <!-- メモがある場合 -->
+                        <span class="c-form__note">(半角数字ハイフンなし)</span>
+                     
+                     <input type="tel" id="tel" name="tel" class="c-form__input"  required >
+                      
+                         <span></span>
+                       
+                    </div>
+                     
+                  
+          <!-- formData配列の各フィールドをループ処理 -->
+          
+                        <!-- テキストエリアフィールドの場合 -->
+                     <div class="c-form__item">
+                      <label for="comment" class="c-form__title">お問い合わせ内容
+                        <!-- フィールドのラベル -->
+                      
+                    </label>
+                     <textarea id="comment" name="comment" class="c-form__textarea" placeholder="お問い合わせ内容を具体的にご記入くださいませ"></textarea>
+                     
+                    </div>
+                    
+                  
+          <!-- formData配列の各フィールドをループ処理 -->
+          
+                         <!-- セレクトボックスフィールドの場合 -->
+                    <div class="c-form__item">
+                     <label for="job" class="c-form__title">サイトをどちらでお知りになりましたか？
+                        <!-- フィールドのラベル -->
+                        
+                            <!-- 必須フィールドの場合 -->
+                    <span class="c-form__require">*必須</span>
+                    
+                   </label>
+                   <select name="job" id="job" class="c-form__select"  required  autocomplete="off">
+                    
+                        <!-- 各セレクトオプションをループ処理 -->
+                     <option value="">選択してください</option>
+                     
+                        <!-- 各セレクトオプションをループ処理 -->
+                     <option value="Google/Yahoo検索">Google/Yahoo検索</option>
+                     
+                        <!-- 各セレクトオプションをループ処理 -->
+                     <option value="SNS">SNS</option>
+                     
+                        <!-- 各セレクトオプションをループ処理 -->
+                     <option value="知人">知人</option>
+                     
+                        <!-- 各セレクトオプションをループ処理 -->
+                     <option value="ブログ">ブログ</option>
+                     
+                        <!-- 各セレクトオプションをループ処理 -->
+                     <option value="その他">その他</option>
+                     
+                    </select>
+                    
+                    <span></span> 
+                 </div>
+                 
+                  
+                   <!-- 送信ボタン -->
+                    <div class="c-form__btn">
+                        <button class="c-btn" type="submit">送信する</button>
+                     </div>
+            </form>
+         </div> <!-- 引数を渡す -->
+    </div>
+</section>
+
+</main>
+
+<footer class="l-footer">
+    <div class="l-footer__copy">
+        <small>&copy; 2024 My Simple Site</small>
+    </div>
+</footer>
+<!-- js -->
+<script src="/js/index.js" defer></script>
+</body>
+</html>
+
