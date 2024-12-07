@@ -11,8 +11,8 @@ const MetaData = {
   title: 'EJS',
   description: 'これはEJSというテンプレートエンジンを使ってコーディングしたWEBサイトです。',
   type: 'website',
-  ogUrl: 'https://ejs-sample.netlify.app/',
-  ogImage: 'https://ejs-sample.netlify.app/img/OGP.png',
+  ogUrl: 'https://ejs-sample-site.netlify.app/',
+  ogImage: 'https://ejs-sample-site.netlify.app/img/OGP.png',
 };
 
 // menuデータ
