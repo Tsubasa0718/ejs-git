@@ -1,0 +1,50 @@
+@use"../foundation/_mixin.scss" as * ;
+
+.l-header{
+    padding: px-clamp(24,48,375,1360);
+    height: px-clamp(88,166,375,1360);
+    &__wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__logo{
+        a {
+            font-size: px-clamp(24,48,375,1360);
+            font-weight: bold;
+        }
+    }
+    &__nav{
+     @include responsive("phone"){
+         padding: px-to-rem(72px) 0;
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100vh;
+         z-index: 1;
+         background-color: #000;
+         display: none;
+     }
+    }
+    &__nav-list{
+        display: flex;
+        @include responsive("phone"){
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    &__item:not(:first-of-type){
+        margin-left: px-to-rem(40px);
+        @include responsive("phone"){
+            margin:px-to-rem(24px) 0 0 0;
+        }
+    }
+   &__link{
+    font-weight: bold;
+    @include responsive("phone"){
+        color: #fff;
+    }
+   }
+}

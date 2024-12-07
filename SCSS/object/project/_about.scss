@@ -1,0 +1,20 @@
+@use "../../foundation/_mixin.scss" as *;
+
+.p-about{
+    &__wrapper{
+        margin-top: px-clamp(32,64,375,1360);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include responsive("phone"){
+            flex-direction: column;
+        }
+    }
+    &__text{
+        margin-left: px-to-rem(40px);
+        @include responsive("phone"){
+            margin:px-to-rem(32px) 0 0 0;
+        }
+        font-size: px-clamp(14,16,375,1360);
+    }
+}

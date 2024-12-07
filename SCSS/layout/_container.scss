@@ -1,0 +1,9 @@
+@use"../foundation/_mixin.scss" as *;
+
+.l-container{
+    max-width: 1140px;
+    margin: 0 auto;
+    @include responsive("phone"){
+        padding: px-to-rem(30px);
+    }
+}

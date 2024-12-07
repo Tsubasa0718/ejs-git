@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+   <meta charset="UTF-8">
+   <!-- metaデータ -->
+    <meta name="description" content="<%= MetaData.description %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- OGP -->
+    <meta property="og:title" content="<%= MetaData.title %>">
+    <meta property="og:description" content="<%= MetaData.description %>">
+    <meta property="og:type" content="<%= MetaData.type %>">
+    <meta property="og:url" content="<%= MetaData.ogUrl %>">
+    <meta property="og:image" content="<%= MetaData.ogImage %>">
+    <title><%= MetaData.title %></title>
+   <!-- GoogleFonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <!-- favicon -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- css -->
+     <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="l-header">
+ <div class="l-header__wrapper">
+    <h1 class="l-header__logo">
+        <a href="#">LOGO</a>
+     </h1>
+     <nav id="js-nav" class="l-header__nav">
+        <ul class="l-header__nav-list">
+            <% Items.forEach((item)=>{ %>
+                <li class="l-header__item"><a class="l-header__link" href="<%= Links[item] %>"><%= item %></a></li>
+          <%  }) %>
+        </ul>
+     </nav>
+ </div>
+ <button id="js-menubtn" type="button" class="c-menubtn l-sp-only">
+    <span></span>
+    <span></span>
+    <span></span>
+ </button>
+</header>

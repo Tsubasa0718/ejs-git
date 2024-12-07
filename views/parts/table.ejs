@@ -1,0 +1,15 @@
+<div class="p-recruit__tab-body">
+    <h4 class="p-recruit__tab-title"><%= jobData.title %></h4>
+
+    <table class="c-table">
+        <% jobData.details.forEach((detail)=> { %>
+            <tr>
+                <th><%= detail.label %></th>
+                <td><%- detail.value %></td>
+            </tr>
+       <% }); %>
+    </table>
+    <div class="c-table__btn">
+     <a href="#" class="c-btn">応募する</a>
+    </div>
+</div>

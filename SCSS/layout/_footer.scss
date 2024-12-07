@@ -1,0 +1,10 @@
+@use "../foundation/_clamp.scss" as *;
+
+.l-footer{
+    background-color: #000;
+    padding: px-clamp(40,64,375,1360);
+ &__copy{
+    text-align: center;
+    color: #fff;
+ }
+}

@@ -1,0 +1,18 @@
+@use "../../foundation/_mixin.scss" as *;
+
+.p-recruit{
+    &__title{
+        margin-bottom: px-clamp(48,64,375,1360);
+    }
+    &__tab-body{
+        max-width: 1012px;
+        margin: 0 auto;
+        padding: px-clamp(40,64,375,1360) px-clamp(32,112,375,1360) px-clamp(64,72,375,1360) px-clamp(32,112,375,1360);
+        border: 1px solid #000;
+    }
+    &__tab-title{
+        text-align: center;
+        font-size: px-to-rem(20px);
+        font-weight: bold;
+    }
+}

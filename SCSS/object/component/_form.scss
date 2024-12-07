@@ -1,0 +1,88 @@
+@use"../../foundation/_mixin.scss" as *;
+
+.c-form-body{
+  max-width: 1012px;
+  margin:px-clamp(48,64,375,1360) auto;
+  border: 1px solid #000;
+  padding: px-clamp(32,40,375,1360) px-clamp(32,218,375,1360) px-clamp(48,72,374,1360) px-clamp(32,218,375,1360);
+}
+
+.c-form-head{
+  font-size: px-clamp(14,16,375,1360);
+}
+
+.c-form{
+    &__field{
+        margin: px-clamp(24,40,375,1360) 0 px-clamp(40,65,375,1360) 0;
+     &__radio-box{
+          display: flex;
+          flex-wrap: wrap;
+          @include responsive("phone"){
+            flex-direction: column;
+          }
+        }
+
+        &__radio-wrapper{
+         margin-right: 2rem;
+         @include responsive("phone"){
+            margin-right:  0;
+         }
+         &__radio-text{
+          font-size: px-clamp(14,16,375,1360);
+         }
+        }
+          &__radio-wrapper:not(:first-of-type){
+            @include responsive("phone"){
+                margin-top: 1rem;
+            }
+        }
+    }
+    &__title{
+        font-size: px-clamp(14,16,375,1360);
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    &__require{
+        margin-left: 1rem;
+        font-size: px-to-rem(12px);
+        color: var(--color-required);
+    }
+   &__item{
+     display: flex;
+     flex-direction: column;
+   }
+   &__item:not(:first-of-type){
+    margin-top: px-clamp(16,24,375,1360);
+   }
+   &__input,
+   &__select{
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: #fff;
+    width: 364px;
+    height: 49px;
+   }
+   &__textarea{
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: #fff;
+    width: 576px;
+    height: 153px;
+   }
+   &__input,
+   &__select,
+   &__textarea{
+    @include responsive("phone"){
+      width: 100%;
+    }
+   }
+   &__note{
+    font-size: px-to-rem(14px);
+    font-weight: 500;
+   }
+  &__btn{
+    margin-top: px-clamp(48,72,375,1360);
+    text-align: center;
+  }
+}

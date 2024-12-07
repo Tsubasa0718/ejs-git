@@ -1,0 +1,23 @@
+{
+  "name": "ejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch scss:css",
+    "server": "node server.js",
+    "start": "concurrently \"npm run sass\" \"npm run server\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "description": "",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "sass": "^1.81.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

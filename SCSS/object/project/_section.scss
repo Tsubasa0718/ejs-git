@@ -1,0 +1,8 @@
+@use"../../foundation/_clamp.scss" as *;
+
+.p-about,
+.p-service,
+.p-recruit,
+.p-contact{
+     padding: px-clamp(32,64,375,1360) 0;
+}

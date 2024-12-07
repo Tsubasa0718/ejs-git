@@ -1,0 +1,17 @@
+@use"../../foundation/_clamp.scss" as *;
+
+.p-hello{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/img/Hello.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: px-clamp(200,724,375,1360);
+    &__title{
+        font-size: px-clamp(40,96,375,1360);
+        font-weight: bold;
+        color: var(--color-white);
+    }
+}

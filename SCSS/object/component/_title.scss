@@ -1,0 +1,7 @@
+@use"../../foundation/_mixin.scss" as *;
+
+.c-section-title{
+  font-size: px-clamp(24,32,375,1360);
+  font-weight: bold;
+  text-align: center;
+}

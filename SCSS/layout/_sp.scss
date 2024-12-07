@@ -1,0 +1,7 @@
+@use "../foundation/_responsive.scss" as *;
+.l-sp-only{
+    display: none;
+    @include responsive("phone"){
+        display: block;
+    }
+}

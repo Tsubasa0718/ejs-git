@@ -1,0 +1,5 @@
+@use "./foundation/_index.scss" as foundation;
+@use "./layout/_index.scss" as layout;
+@use "./object/component/_index.scss" as component;
+@use "./object/project/_index.scss" as project;
+@use "./object/utility/_index.scss" as utility;

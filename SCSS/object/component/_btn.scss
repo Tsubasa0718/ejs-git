@@ -1,0 +1,62 @@
+@use "../../foundation/_mixin.scss" as *;
+
+.c-btn{
+    display: inline-block;
+    text-align: center;
+    width: px-clamp(250,300,375,1360);
+    padding: px-clamp(20,30,375,1360);
+    font-size: px-clamp(16,20,375,1360);
+    font-weight: bold;
+    background-color: #000;
+    color: var(--color-white);
+    border-radius: 50px;
+    transition: all .3s;
+
+    &:hover{
+        background-color: var(--color-white);
+        color: #000;
+        border: 1px solid #000;
+    }
+}
+
+.c-menubtn{
+  position: fixed;
+  right: px-to-rem(24px);
+  top: px-to-rem(24px);
+  width: 40px;
+  height: 40px;
+  background-color: #000;
+  z-index: 2;
+  span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    width: 25px;
+    height: 1px;
+    transition: all .3s;
+  }
+  span:nth-of-type(1) {
+     top: calc(50% - 8px); /* 8px上に移動 */
+    }
+  span:nth-of-type(2) {
+     top: 50%;
+    }
+  span:nth-of-type(3) {
+     top: calc(50% + 8px); /* 8px下に移動 */
+    }
+  &.active{
+    span:nth-child(1) {
+      transform: translate(-50%, -50%) rotate(45deg);
+      top: 50%;
+      }
+       span:nth-child(2) {
+        opacity: 0;
+      }
+       span:nth-child(3) {
+        transform: translate(-50%, -50%) rotate(-45deg);
+            top: 50%;
+      }
+  }
+ }

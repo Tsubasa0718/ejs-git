@@ -1,0 +1,89 @@
+<div class="c-form-body">
+    <!-- フォームのヘッダー -->
+     <div class="c-form-head">
+        Webサイトの制作のご依頼やお見積りなど、お気軽にご相談ください。
+    </div>
+    <form action="#" class="c-form" id="js-form"  novalidate>
+         <% formData.forEach((field) => { %>
+          <!-- formData配列の各フィールドをループ処理 -->
+          <% if (field.type === 'radio') { %>
+            <!-- フィールドのタイプがラジオボタンの場合 -->
+             <fieldset class="c-form__field">
+                <legend class="c-form__title"><%= field.label %>
+               <!-- ラジオボタンのグループ名 -->
+                 <% if (field.required) { %>
+                <!-- 必須フィールドの場合 -->
+                 <span class="c-form__require">※必須</span>
+                 <% } %>
+                </legend>
+          <div class="c-form__field__radio-box">
+            <% field.options.forEach((option) => { %>
+                <!-- 各ラジオボタンオプションをループ処理 -->
+                  <div class="c-form__field__radio-wrapper">
+                     <input type="radio" name="<%= field.name %>" id="<%= option.id %>" value="<%= option.value %>">
+                     <label class="c-form__field__radio-wrapper__radio-text" for="<%= option.id %>"><%= option.label %></label>
+                  </div>
+                   <% }) %>
+                   <span id="js-radio-error"></span>
+                </div>
+            </fieldset> <% } else if (field.type === 'text' || field.type === 'email' || field.type === 'tel') { %>
+             <!-- テキスト、メール、電話番号フィールドの場合 -->
+               <div class="c-form__item">
+                <label for="<%= field.name %>" class="c-form__title"><%= field.label %>
+                    <!-- フィールドのラベル -->
+                     <% if (field.required) { %>
+                    <!-- 必須フィールドの場合 -->
+                     <span class="c-form__require">必須</span>
+                      <% } %>
+                     </label>
+                     <% if (field.note) { %>
+                       <!-- メモがある場合 -->
+                        <span class="c-form__note"><%= field.note %></span>
+                     <% } %>
+                     <input type="<%= field.type %>" id="<%= field.name %>" name="<%= field.name %>" class="c-form__input" <% if (field.required) { %> required <% } %> autocomplete="<%= field.name %>">
+                      <% if (field.required) { %>
+                         <span></span>
+                       <% } %>
+                    </div>
+                     <% } else if (field.type === 'textarea') { %>
+                        <!-- テキストエリアフィールドの場合 -->
+                     <div class="c-form__item">
+                      <label for="<%= field.name %>" class="c-form__title"><%= field.label %>
+                        <!-- フィールドのラベル -->
+                      <% if (field.required) { %>
+                      <!-- 必須フィールドの場合 -->
+                       <span class="c-form__require">*必須</span>
+                       <% } %>
+                    </label>
+                     <textarea id="<%= field.name %>" name="<%= field.name %>" class="c-form__textarea" placeholder="<%= field.placeholder %>"></textarea>
+                     <% if (field.required) { %>
+                        <span></span>
+                        <% } %>
+                    </div>
+                    <% } else if (field.type === 'select') { %>
+                         <!-- セレクトボックスフィールドの場合 -->
+                    <div class="c-form__item">
+                     <label for="<%= field.name %>" class="c-form__title"><%= field.label %>
+                        <!-- フィールドのラベル -->
+                        <% if (field.required) { %>
+                            <!-- 必須フィールドの場合 -->
+                    <span class="c-form__require">*必須</span>
+                    <% } %>
+                   </label>
+                   <select name="<%= field.name %>" id="<%= field.name %>" class="c-form__select" <% if (field.required) { %> required <% } %> autocomplete="off">
+                    <% field.options.forEach((option) => { %>
+                        <!-- 各セレクトオプションをループ処理 -->
+                     <option value="<%= option.value %>"><%= option.label %></option>
+                     <% }) %>
+                    </select>
+                    <% if (field.required) { %>
+                    <span></span> <% } %>
+                 </div>
+                 <% } %>
+                  <% }) %>
+                   <!-- 送信ボタン -->
+                    <div class="c-form__btn">
+                        <button class="c-btn" type="submit">送信する</button>
+                     </div>
+            </form>
+         </div>

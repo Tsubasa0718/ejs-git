@@ -1,0 +1,39 @@
+@use "../../foundation/_mixin.scss" as *;
+
+.p-service{
+    &__wrapper{
+        margin-top: px-clamp(32,64,375,1360);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: px-to-rem(40px);
+        @include responsive("phone"){
+            grid-template-columns: repeat(1, 1fr);
+            column-gap: px-to-rem(64px);
+            align-items: center;
+        }
+    }
+    &__image{
+        @include responsive("phone"){
+         text-align: center;
+         width: 100%;
+         img {
+            width: 100%;
+         }
+        }
+    }
+    &__caption{
+        margin-top: px-clamp(24,32,375,1360);
+        font-size: px-clamp(20,24,375,1360);
+        font-weight: bold;
+        text-align: center;
+    }
+    &__text{
+        margin-top: px-clamp(16,24,375,1360);
+        font-size: px-clamp(14,16,375,1360);
+        text-align: center;
+    }
+    &__btn{
+        margin-top: px-clamp(48,72,375,1360);
+        text-align: center;
+    }
+}

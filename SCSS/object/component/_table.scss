@@ -1,0 +1,51 @@
+@use "../..//foundation/_mixin.scss" as *;
+
+.c-table{
+    margin-top: px-clamp(54,108,375,1360);
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    tr{
+        border-bottom: 1px solid #D0D0D0;
+        @include responsive("phone"){
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    th:first-of-type{
+        padding-bottom: px-clamp(16,32,375,1360); /* 任意の値を指定 */
+    }
+    td:first-of-type {
+        padding-bottom: px-clamp(24,32,375,1360); /* 任意の値を指定 */
+    }
+
+    th,td{
+     padding: px-to-rem(32px) 0;
+     @include responsive("phone"){
+        font-size: px-to-rem(14px);
+     }
+    }
+    th{
+     width: 20%;
+     white-space: nowrap;
+     @include responsive("phone"){
+      padding: px-to-rem(24px) 0 px-to-rem(16px) 0;
+     }
+    }
+    td{
+        @include responsive("phone"){
+         padding: 0 0 px-to-rem(24px) 0;
+        }
+    }
+    &__td-list{
+        margin-top: px-clamp(16,24,375,1360);
+    }
+    &__td-item::before{
+        content: "・";
+    }
+    &__btn{
+        margin-top: px-clamp(32,48,375,1360);
+        text-align: center;
+    }
+}
