@@ -112,8 +112,28 @@ const renderEJS = (templatePath, data, outputPath) => {
 
 // 静的ファイルをコピーする関数
 const copyStaticFiles = (src, dest) => {
+  const destDir = path.dirname(dest);
+  if (!fs.existsSync(destDir)) {
+    fs.mkdirSync(destDir, { recursive: true });
+  }
   fs.copyFileSync(src, dest);
   console.log(`Copied ${src} to ${dest}`);
+};
+
+// ディレクトリ全体をコピーする関数
+const copyDirectory = (src, dest) => {
+  if (!fs.existsSync(dest)) {
+    fs.mkdirSync(dest, { recursive: true });
+  }
+  fs.readdirSync(src).forEach((file) => {
+    const srcFile = path.join(src, file);
+    const destFile = path.join(dest, file);
+    if (fs.lstatSync(srcFile).isDirectory()) {
+      copyDirectory(srcFile, destFile);
+    } else {
+      copyStaticFiles(srcFile, destFile);
+    }
+  });
 };
 
 const viewsDir = path.join(__dirname, 'views');
@@ -122,6 +142,8 @@ const cssSrc = path.join(__dirname, 'css', 'style.css');
 const cssDest = path.join(outputDir, 'css', 'style.css');
 const jsSrc = path.join(__dirname, 'js', 'index.js');
 const jsDest = path.join(outputDir, 'js', 'index.js');
+const imgSrc = path.join(__dirname, 'img');
+const imgDest = path.join(outputDir, 'img');
 
 console.log('Checking output directory:', outputDir);
 // 出力ディレクトリが存在しない場合は作成
@@ -133,6 +155,9 @@ if (!fs.existsSync(outputDir)) {
 // CSSとJavaScriptファイルをコピー
 copyStaticFiles(cssSrc, cssDest);
 copyStaticFiles(jsSrc, jsDest);
+
+// 画像ファイルをコピー
+copyDirectory(imgSrc, imgDest);
 
 const data = { MetaData, Items, Links, jobData, formData };
 const templatePath = path.join(viewsDir, 'index.ejs');
