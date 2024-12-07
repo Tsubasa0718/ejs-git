@@ -1,7 +1,7 @@
 @use "../../foundation/_mixin.scss" as *;
 
 .c-error{
-    font-size: 1rem;
+    font-size: px-clamp(14,16,375,1360);
     color: red;
     padding: px-to-rem(8px) 0;
 }

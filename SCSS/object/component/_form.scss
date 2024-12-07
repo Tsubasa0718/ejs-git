@@ -40,7 +40,7 @@
     &__title{
         font-size: px-clamp(14,16,375,1360);
         font-weight: bold;
-        margin-bottom: 1rem;
+        margin-bottom: px-clamp(8,16,375,1360);
     }
 
     &__require{
@@ -80,6 +80,7 @@
    &__note{
     font-size: px-to-rem(14px);
     font-weight: 500;
+    margin-bottom: px-to-rem(8px);
    }
   &__btn{
     margin-top: px-clamp(48,72,375,1360);
