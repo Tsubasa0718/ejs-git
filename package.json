@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "sass --watch scss:css",
     "server": "node server.js",
-    "start": "concurrently \"npm run sass\" \"npm run server\""
+    "start": "concurrently \"npm run sass\" \"npm run server\"",
+    "build": "node create-static-pages.js"
   },
   "keywords": [],
   "author": "",
