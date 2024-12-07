@@ -1,11 +1,16 @@
-
+import http from 'http';
 import fs from 'fs';
 import path from 'path';
-import ejs from 'ejs';
 import { fileURLToPath } from 'url';
+// ejsモジュールをインポート
+import ejs from 'ejs';
+import { type } from 'os';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const hostname = '127.0.0.1';
+const port = 3000;
 
 // metaデータ
 const MetaData = {
@@ -98,28 +103,59 @@ const formData = [
     },
 ];
 
+const server = http.createServer((req, res) => {
+    const serveFile = (filePath, contentType) => {
+        fs.readFile(filePath, (err, content) => {
+            if (err) {
+                console.error(`File read error: ${filePath}`, err);  // ファイル読み取りエラーの詳細なログ
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.end('Server Error');
+                return;
+            }
+            console.log(`Serving file: ${filePath}`);  // 提供するファイルのパスをログに表示
+            res.writeHead(200, { 'Content-Type': contentType });
+            res.end(content);
+        });
+    };
 
-const renderEJS = (templatePath, data, outputPath) =>{
-    ejs.renderFile(templatePath, data, {}, (err, str) =>{
-        if(err){
-            console.error('EJS render error:', err); return;
-        } else{
-            fs.writeFileSync(outputPath, str);
-            console.log(`Rendered and saved: ${outputPath}`);
-        }
-    });
-};
+    if (req.url === '/') {
+        const filePath = path.join(__dirname, 'views', 'index.ejs');  // EJSテンプレートのパス
+        fs.readFile(filePath, 'utf-8', (err, content) => {
+            if (err) {
+                console.error('File read error:', err);  // ファイル読み取りエラーのログ
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.end('Server Error');
+                return;
+            }
+            try {
+                const data = { MetaData, Items, Links, jobData, formData };
+                const rendered = ejs.render(content, data, { views: [path.join(__dirname, 'views')] });  // EJSテンプレートのレンダリング
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.end(rendered);
+            } catch (ejsErr) {
+                console.error('EJS render error:', ejsErr);  // EJSレンダリングエラーのログ
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.end('Server Error');
+            }
+        });
+    } else if (req.url === '/css/style.css') {
+        const cssPath = path.join(__dirname, 'css', 'style.css');
+        serveFile(cssPath, 'text/css');  // CSSファイルを提供
+    } else if (req.url === '/js/index.js') {
+        const jsPath = path.join(__dirname, 'js', 'index.js');
+        serveFile(jsPath, 'application/javascript');  // JavaScriptファイルを提供
+    } else if (req.url === '/img/favicon.ico') { // ファビコンファイルの提供
+        const iconPath = path.join(__dirname, 'img', 'favicon.ico');
+        serveFile(iconPath, 'image/x-icon');
+    } else if (req.url.startsWith('/img/')) { // imgフォルダ内のファイル提供
+        const imgPath = path.join(__dirname, req.url);
+        serveFile(imgPath, 'image/jpg'); // 画像ファイルのタイプを適切に設定
+    }else {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end('Not Found');  // 404エラーメッセージを返す
+    }
+});
 
-const viewsDir = path.join(__dirname, 'views');
-const outputDir = path.join(__dirname, 'dist');
-
-// 出力ディレクトリが存在しない場合は作成
-if (!fs.existsSync(outputDir)) {
- fs.mkdirSync(outputDir);
-}
-
-const data = { MetaData, Items, Links, jobData, formData };
-const templatePath = path.join(viewsDir, 'index.ejs');
-const outputPath = path.join(outputDir, 'index.html');
-
-renderEJS(templatePath, data, outputPath);
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);  // サーバー起動メッセージ
+});
