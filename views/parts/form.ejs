@@ -40,7 +40,7 @@
                        <!-- メモがある場合 -->
                         <span class="c-form__note"><%= field.note %></span>
                      <% } %>
-                     <input type="<%= field.type %>" id="<%= field.name %>" name="<%= field.name %>" class="c-form__input" <% if (field.required) { %> required <% } %> autocomplete="<%= field.name %>">
+                     <input type="<%= field.type %>" id="<%= field.name %>" name="<%= field.name %>" class="c-form__input" <% if (field.required) { %> required <% } %>>
                       <% if (field.required) { %>
                          <span></span>
                        <% } %>
