@@ -110,15 +110,29 @@ const renderEJS = (templatePath, data, outputPath) => {
   });
 };
 
+// 静的ファイルをコピーする関数
+const copyStaticFiles = (src, dest) => {
+  fs.copyFileSync(src, dest);
+  console.log(`Copied ${src} to ${dest}`);
+};
+
 const viewsDir = path.join(__dirname, 'views');
 const outputDir = path.join(__dirname, 'dist');
+const cssSrc = path.join(__dirname, 'css', 'style.css');
+const cssDest = path.join(outputDir, 'css', 'style.css');
+const jsSrc = path.join(__dirname, 'js', 'index.js');
+const jsDest = path.join(outputDir, 'js', 'index.js');
 
 console.log('Checking output directory:', outputDir);
 // 出力ディレクトリが存在しない場合は作成
 if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir);
+  fs.mkdirSync(outputDir, { recursive: true });
   console.log('Output directory created:', outputDir);
 }
+
+// CSSとJavaScriptファイルをコピー
+copyStaticFiles(cssSrc, cssDest);
+copyStaticFiles(jsSrc, jsDest);
 
 const data = { MetaData, Items, Links, jobData, formData };
 const templatePath = path.join(viewsDir, 'index.ejs');
